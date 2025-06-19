@@ -30,7 +30,7 @@ MODEL = "gemini/gemini-2.0-flash"
 
 
 #------------------------------------Agent-------------------------------------------------
-def agent(prompt: list[dict], user_name: str) -> str :
+def agent(prompt: list[dict]) -> str :
 
 #------------------------------------------todo_list_agent----------------------------------------------    
     todo_list_agent = Agent(
@@ -217,12 +217,6 @@ def agent(prompt: list[dict], user_name: str) -> str :
         instructions=f"""
 
        # 🤖 Main Agent Instructions
-
-      ## 👤 User Name:
-      You are currently speaking with a user named **{user_name}**.
-      - Always include their name at the beginning of every reply.
-      - Use a friendly and respectful tone (e.g., "Sure {user_name}, I’ll help you with that.")
-
 
       You are the **main agent** responsible for routing user queries to the correct sub-agent using `handoff`.
 

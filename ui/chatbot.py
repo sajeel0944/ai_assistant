@@ -104,7 +104,7 @@ def chatbot():
                     for chat in st.session_state.chat_history
                 ]
             # converted_chat_history ko mein agent main send kar raha ho
-            response = agent(prompt=converted_chat_history, user_name= filter_user_name)
+            response = agent(prompt=converted_chat_history)
             ai_answer = response.final_output  
 
 

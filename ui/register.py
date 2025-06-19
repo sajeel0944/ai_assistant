@@ -24,6 +24,6 @@ def rigister() -> bool:
                     st.warning("Somethink Was Wrong Please Check Your Information")
                     
                     
-
+ 
 
        

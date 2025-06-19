@@ -62,4 +62,4 @@ class AddUser():
         with open("current_user_email_password.json", "w") as file:
             json.dump(schema, file, indent=4)
             
-            
+             

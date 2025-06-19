@@ -278,3 +278,4 @@ def show_all_information() -> list[dict]:
                 return user_information  
 
 
+ 
