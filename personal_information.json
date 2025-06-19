@@ -1,0 +1,11 @@
+[
+    {
+        "fristName": "testing",
+        "lastName": "testing",
+        "email": "testing@gmail.com",
+        "password": "testing",
+        "registerDate": "2025-06-15",
+        "todoList": [],
+        "userInformation": []
+    }
+]
