@@ -13,6 +13,7 @@ def add_personal_information(dataType: str, information: str, priority: str) -> 
 
    The LLM will analyze the user's query or statement and automatically decide which information is worth saving as personal information. Examples of information to save include:
     - I like pizza in my meals
+    - my account number is 3489758475
     - My NIC number is "7647677374"
     - I enjoy reading
     - I don’t like shopping

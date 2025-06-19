@@ -83,11 +83,21 @@ def chatbot():
 
     st.markdown(f'<h1 style="text-align: center; color: white; background: linear-gradient(45deg, #007bff, #00c6ff); padding: 15px; border-radius: 8px;">🤖 AI Assistant for {filter_user_name}</h1>', unsafe_allow_html=True)
 
+    
     # is ky andar user or AI ky chat save ho rahy hai
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
 
     value = st.chat_input("💬 Ask something about...")  # user input
+
+    if not st.session_state.chat_history:
+        default_message = f"""
+        👋 Hello {filter_user_name}!  
+        I'm your personal assistant, here to help you manage your **To-Do List** and securely organize your **personal information** like preferences, details, and more.  
+        Feel free to ask me anything — I'm ready when you are!
+        """
+        st.session_state.chat_history.append({"role": "AI", "message": default_message})
+
 
     if value:
         # chat_history ky andar user ka question jaraha hai
@@ -102,10 +112,12 @@ def chatbot():
                         "content": chat["message"]
                     }
                     for chat in st.session_state.chat_history
+                    if "I'm your personal assistant" not in chat["message"]  # filter out default greeting
                 ]
             # converted_chat_history ko mein agent main send kar raha ho
             response = agent(prompt=converted_chat_history)
-            ai_answer = response.final_output  
+            ai_answer = response.final_output 
+            print(converted_chat_history) 
 
 
             # ✅ Extracting AI Response Correctly
@@ -121,6 +133,7 @@ def chatbot():
             st.session_state.chat_history.append({"role": "AI", "message": "⚠️ Please wait 5 minutes and try again."})
 
 
+   
     # 🔹 **Display Chat History with Fix for Links or ye div nichy end ho raha hai**
     st.markdown('<div class="chat-container">', unsafe_allow_html=True)
 
