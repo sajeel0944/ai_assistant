@@ -6,7 +6,7 @@ from ui.chatbot import chatbot
 
 ## ye dashboard ko display hony ko manage kar raha hai
 if "display" not in st.session_state:
-    st.session_state.display = False # agar is ki value True hogi to login or register waly show hogy wana flase hogi to after_log_reg.py show hoga
+    st.session_state.display = True # agar is ki value True hogi to login or register waly show hogy wana flase hogi to after_log_reg.py show hoga
 
 # agar  st.session_state.display is value true hoye
 if  st.session_state.display:
@@ -29,9 +29,6 @@ if  st.session_state.display:
             pass
 
 else:
-    user_email = st.session_state.get("user_email", "User")
-    user_password = st.session_state.get("user_password", "password")
-    # st.success(f"sh djjd ejedhh {user_email} and {user_password}")
     chatbot()
 
 
